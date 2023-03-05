@@ -21,11 +21,4 @@ async def main():
         tasks.append(asyncio.create_task(bot.loadcog(fn[:-3], i)))
   for i in tasks: await i
 asyncio.run(main())
-@bot.bot.listen("on_disconnect")
-async def change_ip():
-  system("kill 1")
-try:
-  bot.run(environ['token'])
-except Exception as e:
-  print(e)
-  system('kill 1')
+bot.run(environ['token'])
